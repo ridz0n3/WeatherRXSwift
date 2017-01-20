@@ -26,17 +26,30 @@ class WeatherViewController: UIViewController {
         
         title = "Weather Forecast"
         
-        Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=8131be7e3e6b2014b3af931e011bd730").responseJSON { response in
-            
-            let json: Any? = try? JSONSerialization.jsonObject(with: response.data!, options: [])
-            
-            if let j: Any = json {
-                self.weather = decode(j)
-                let t = self.weather?.list
-                self.weatherData = Observable.just(t!)
-                self.setupCellConfiguration()
+        let geolocationService = GeolocationService.instance
+        var isfirst = false
+        
+        geolocationService.location.drive(onNext: { (loc) in
+            if !isfirst{
+                isfirst = true
+                geolocationService.locationManager.stopUpdatingLocation()
+                
+                Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?lat=\(loc.latitude)&lon=\(loc.longitude)&appid=8131be7e3e6b2014b3af931e011bd730").responseJSON { response in
+                    
+                    let json: Any? = try? JSONSerialization.jsonObject(with: response.data!, options: [])
+                    
+                    if let j: Any = json {
+                        self.weather = decode(j)
+                        let t = self.weather?.list
+                        self.weatherData = Observable.just(t!)//.just(self.weather!)
+                        self.setupCellConfiguration()
+                        self.setupCellTapHandling()
+                    }
+                }
+                
             }
-        }
+            
+        }, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
         
         // Do any additional setup after loading the view.
     }
@@ -55,6 +68,20 @@ class WeatherViewController: UIViewController {
         }
                 .addDisposableTo(disposeBag)
 
+    }
+    
+    private func setupCellTapHandling() {
+        //Equivalent of did select row at index path
+        weatherTableView
+            .rx
+            .modelSelected(List.self)
+            .subscribe(onNext: {
+                data in
+                
+                WeatherDescription.sharedDescription.weather.value = [data]
+                
+            })
+            .addDisposableTo(disposeBag)
     }
     
     override func didReceiveMemoryWarning() {
