@@ -13,6 +13,7 @@ import Alamofire
 import Argo
 import Curry
 import Runes
+import Firebase
 
 class WeatherViewController: UIViewController {
 
@@ -26,6 +27,7 @@ class WeatherViewController: UIViewController {
         
         title = "Weather Forecast"
         
+        UserDefaults.standard.value(forKey: "test")
         let geolocationService = GeolocationService.instance
         var isfirst = false
         
@@ -87,6 +89,20 @@ class WeatherViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //let url = URL(string: "https://click.google-analytics.com/redirect?tid=UA-73345306-5&url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmy-weather%2Fid1201627588%3Fls%3D1%26mt%3D8&aid=com.me-tech.my.Weather-Forecast&idfa={idfa}&cs=google&cm=cpc&ck=test&anid=admob&hash=md5")
+        
+        guard let tracker = GAI.sharedInstance().defaultTracker else { return }
+        tracker.allowIDFACollection = true
+        
+        tracker.set(kGAIScreenName, value: "home")
+        
+        guard let builder = GAIDictionaryBuilder.createScreenView() else { return }
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
 

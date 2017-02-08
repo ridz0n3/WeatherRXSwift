@@ -12,6 +12,13 @@ target 'Weather Forecast' do
   pod 'Curry'
   pod 'Alamofire', '~> 4.0'
   pod 'Kingfisher', '~> 3.2'
+  pod 'Google/Analytics'
+  pod 'GoogleIDFASupport'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Google/SignIn'
+  pod 'Fabric'
+  pod 'Crashlytics'
   
 end
 

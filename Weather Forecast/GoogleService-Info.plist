@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>TRACKING_ID</key>
+	<string>UA-73345306-5</string>
+	<key>CLIENT_ID</key>
+	<string>602462066035-018nivutd3hq2f1980hiicp6qr9pn46s.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.602462066035-018nivutd3hq2f1980hiicp6qr9pn46s</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBaU__FwrS0bK50oZJqVX0mvzWE2wA8rm0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>602462066035</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.me-tech.my.Weather-Forecast</string>
+	<key>PROJECT_ID</key>
+	<string>firebase-weatherforecast</string>
+	<key>STORAGE_BUCKET</key>
+	<string>firebase-weatherforecast.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<true/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:602462066035:ios:c03aa6505828011e</string>
+	<key>DATABASE_URL</key>
+	<string>https://fir-weatherforecast.firebaseio.com</string>
+</dict>
+</plist>

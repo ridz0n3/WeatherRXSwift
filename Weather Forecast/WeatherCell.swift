@@ -20,7 +20,16 @@ class WeatherCell: UITableViewCell {
     @IBOutlet weak var descriptionLbl: UILabel!
     
     func configureWithWeather(_ weatherData: List) {
-        timeLbl.text = weatherData.dt_txt
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en-GB")
+        formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        
+        let date = formatter.date(from: weatherData.dt_txt)
+        
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        timeLbl.text = formatter.string(from: date!)
         
         let url = URL(string: "http://openweathermap.org/img/w/\(weatherData.weather[0].icon).png")
         weatherImgView.kf.indicatorType = .activity
