@@ -16,10 +16,10 @@ struct TemperatureDetail: Decodable {
     let temp_min: Int
     let temp_max: Int
     let pressure: Int
-    let sea_level: Int
-    let grnd_level: Int
+    let sea_level: Int?
+    let grnd_level: Int?
     let humidity: Int
-    let temp_kf: Int
+    let temp_kf: Int?
     
     static func decode(_ j: JSON) -> Decoded<TemperatureDetail> {
         return curry(TemperatureDetail.init)
@@ -27,9 +27,9 @@ struct TemperatureDetail: Decodable {
             <*> j <| "temp_min"
             <*> j <| "temp_max"
             <*> j <| "pressure"
-            <*> j <| "sea_level"
-            <*> j <| "grnd_level"
+            <*> j <|? "sea_level"
+            <*> j <|? "grnd_level"
             <*> j <| "humidity"
-            <*> j <| "temp_kf"
+            <*> j <|? "temp_kf"
     }
 }

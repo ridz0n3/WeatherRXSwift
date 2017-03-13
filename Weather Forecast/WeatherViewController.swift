@@ -24,10 +24,10 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = false
         title = "Weather Forecast"
+        tabSetup()
         
-        UserDefaults.standard.value(forKey: "test")
         let geolocationService = GeolocationService.instance
         var isfirst = false
         
@@ -93,7 +93,7 @@ class WeatherViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        //AIzaSyD2LWQ5ZKGiDPeJR06dsZQ1TFBa42sJBTY
         //let url = URL(string: "https://click.google-analytics.com/redirect?tid=UA-73345306-5&url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmy-weather%2Fid1201627588%3Fls%3D1%26mt%3D8&aid=com.me-tech.my.Weather-Forecast&idfa={idfa}&cs=google&cm=cpc&ck=test&anid=admob&hash=md5")
         
         guard let tracker = GAI.sharedInstance().defaultTracker else { return }
@@ -105,7 +105,29 @@ class WeatherViewController: UIViewController {
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
-
+    func tabSetup(){
+        
+        let tools = UIToolbar()
+        tools.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        tools.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
+        tools.backgroundColor = UIColor.clear
+        tools.clipsToBounds = true;
+        tools.isTranslucent = true;
+        
+        let image2 = UIImage(named: "backWhiteImg")!.withRenderingMode(.alwaysOriginal)
+        
+        let backButton = UIBarButtonItem(image: image2, style: .plain, target: self, action: #selector(self.backButtonPressed(_:)))
+        backButton.imageInsets = UIEdgeInsetsMake(0, -35, 0, 0)
+        
+        let buttons1:[UIBarButtonItem] = [backButton]
+        tools.setItems(buttons1, animated: false)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: tools)
+    }
+    
+    func backButtonPressed(_ sender: UIBarButtonItem){
+        _ = navigationController?.popViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 

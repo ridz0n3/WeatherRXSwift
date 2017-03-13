@@ -29,6 +29,7 @@ class WeatherDescriptionViewController: UIViewController {
         let tempDetails = desc.description().main
         
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en-GB")
         formatter.dateFormat = "YYYY-mm-dd HH:mm:ss"
         
         let date = formatter.date(from: desc.description().dt_txt)

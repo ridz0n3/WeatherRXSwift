@@ -10,11 +10,15 @@
 		109E28408217AA0FCECD9F2B /* Pods_Weather_Forecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294FC999BB731100B49392B4 /* Pods_Weather_Forecast.framework */; };
 		22004BAE1E42FFF9009CEA03 /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22004BAC1E42FFF9009CEA03 /* Play-Bold.ttf */; };
 		22004BAF1E42FFF9009CEA03 /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22004BAD1E42FFF9009CEA03 /* Play-Regular.ttf */; };
+		2204ED6A1E6D224A0016238C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2204ED691E6D224A0016238C /* iAd.framework */; };
 		221F1BA21E3057C600971110 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F1BA11E3057C600971110 /* List.swift */; };
 		221F1BA41E30586000971110 /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F1BA31E30586000971110 /* WeatherDetail.swift */; };
 		221F1BA61E30588800971110 /* TemperatureDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F1BA51E30588800971110 /* TemperatureDetail.swift */; };
 		221F1BA81E3070AE00971110 /* WeatherDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F1BA71E3070AE00971110 /* WeatherDescription.swift */; };
 		221F1BAA1E30756900971110 /* WeatherDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F1BA91E30756900971110 /* WeatherDescriptionViewController.swift */; };
+		222E2DA21E4AEE8E003A3BD7 /* WeatherMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E2DA11E4AEE8E003A3BD7 /* WeatherMainViewController.swift */; };
+		222E2DA41E4AF90F003A3BD7 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E2DA31E4AF90F003A3BD7 /* CurrentWeather.swift */; };
+		222E2DA81E4B0D1F003A3BD7 /* SysData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E2DA71E4B0D1F003A3BD7 /* SysData.swift */; };
 		22495F551E441F390093FBD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22495F541E441F390093FBD1 /* GoogleService-Info.plist */; };
 		22A79E081E30B6AD00B2E3C5 /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A79E071E30B6AD00B2E3C5 /* GeolocationService.swift */; };
 		22A79E0A1E30B70500B2E3C5 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A79E091E30B70500B2E3C5 /* CLLocationManager+Rx.swift */; };
@@ -32,11 +36,15 @@
 		22004BAB1E42EAE0009CEA03 /* ObjC-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjC-Bridge.h"; sourceTree = "<group>"; };
 		22004BAC1E42FFF9009CEA03 /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
 		22004BAD1E42FFF9009CEA03 /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
+		2204ED691E6D224A0016238C /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		221F1BA11E3057C600971110 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		221F1BA31E30586000971110 /* WeatherDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
 		221F1BA51E30588800971110 /* TemperatureDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureDetail.swift; sourceTree = "<group>"; };
 		221F1BA71E3070AE00971110 /* WeatherDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDescription.swift; sourceTree = "<group>"; };
 		221F1BA91E30756900971110 /* WeatherDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDescriptionViewController.swift; sourceTree = "<group>"; };
+		222E2DA11E4AEE8E003A3BD7 /* WeatherMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherMainViewController.swift; sourceTree = "<group>"; };
+		222E2DA31E4AF90F003A3BD7 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		222E2DA71E4B0D1F003A3BD7 /* SysData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SysData.swift; sourceTree = "<group>"; };
 		22495F541E441F390093FBD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22A79E071E30B6AD00B2E3C5 /* GeolocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
 		22A79E091E30B70500B2E3C5 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
@@ -60,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2204ED6A1E6D224A0016238C /* iAd.framework in Frameworks */,
 				109E28408217AA0FCECD9F2B /* Pods_Weather_Forecast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +108,7 @@
 				22FD3E241E2475D400FA242E /* AppDelegate.swift */,
 				22FD3E3C1E24798300FA242E /* WeatherViewController.swift */,
 				221F1BA91E30756900971110 /* WeatherDescriptionViewController.swift */,
+				222E2DA11E4AEE8E003A3BD7 /* WeatherMainViewController.swift */,
 				22FD3E281E2475D400FA242E /* Main.storyboard */,
 				22FD3E391E24760300FA242E /* Views */,
 				22FD3E371E2475F700FA242E /* Models */,
@@ -132,6 +142,8 @@
 				221F1BA31E30586000971110 /* WeatherDetail.swift */,
 				221F1BA51E30588800971110 /* TemperatureDetail.swift */,
 				221F1BA71E3070AE00971110 /* WeatherDescription.swift */,
+				222E2DA31E4AF90F003A3BD7 /* CurrentWeather.swift */,
+				222E2DA71E4B0D1F003A3BD7 /* SysData.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -156,6 +168,7 @@
 		4C3785DF94F692F110A05C1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2204ED691E6D224A0016238C /* iAd.framework */,
 				294FC999BB731100B49392B4 /* Pods_Weather_Forecast.framework */,
 			);
 			name = Frameworks;
@@ -309,8 +322,11 @@
 				221F1BA61E30588800971110 /* TemperatureDetail.swift in Sources */,
 				22FD3E3D1E24798300FA242E /* WeatherViewController.swift in Sources */,
 				22A79E081E30B6AD00B2E3C5 /* GeolocationService.swift in Sources */,
+				222E2DA21E4AEE8E003A3BD7 /* WeatherMainViewController.swift in Sources */,
 				22A79E0A1E30B70500B2E3C5 /* CLLocationManager+Rx.swift in Sources */,
 				221F1BA81E3070AE00971110 /* WeatherDescription.swift in Sources */,
+				222E2DA81E4B0D1F003A3BD7 /* SysData.swift in Sources */,
+				222E2DA41E4AF90F003A3BD7 /* CurrentWeather.swift in Sources */,
 				22FD3E251E2475D400FA242E /* AppDelegate.swift in Sources */,
 				22A79E0C1E30B73300B2E3C5 /* RxCLLocationManagerDelegateProxy.swift in Sources */,
 				221F1BA21E3057C600971110 /* List.swift in Sources */,

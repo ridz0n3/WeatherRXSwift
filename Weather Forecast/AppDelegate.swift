@@ -88,7 +88,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        let urlString = url.absoluteString
+        
+        let ur = url.absoluteString
+        let t = GAI.sharedInstance().tracker(withName: "traker", trackingId: "UA-73345306-5")
+        let hit = GAIDictionaryBuilder()
+        hit.setCampaignParametersFromUrl(ur)
+        
+        if !(hit.get(kGAICampaignSource) != nil) && url.host?.characters.count != 0{
+            hit.set("referrer", forKey: kGAICampaignMedium)
+            hit.set(url.host, forKey: kGAICampaignSource)
+        }else{
+            var ref: FIRDatabaseReference!
+            
+            ref = FIRDatabase.database().reference()
+            ref.child("campaignSourceIn").setValue(["paramDict": kGAICampaignSource])
+            ref.child("campaignMediumIn").setValue(["url": kGAICampaignMedium])
+            ref.child("refIn").setValue(["InSource": "success"])
+        }
+        
+        let hitDict = hit.build()
+        t?.set(kGAIScreenName, value: "promIn")
+        t?.send(GAIDictionaryBuilder.createScreenView().setAll(hitDict as [NSObject : AnyObject]!).build() as [NSObject : AnyObject]!)
+        
+        /*let urlString = url.absoluteString
         let tracker = GAI.sharedInstance().defaultTracker
         let hitParams = GAIDictionaryBuilder()
         hitParams.setCampaignParametersFromUrl(urlString)
@@ -107,16 +129,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ref = FIRDatabase.database().reference()
         ref.child("dict").setValue(["paramDict": hitParamsdict])
         ref.child("absoluteString").setValue(["url": urlString])
-        
+        ref.child("refSource").setValue(["InSource": "success"])
         tracker?.set(kGAIScreenName, value: "Screen Name")
-        tracker?.send(GAIDictionaryBuilder.createScreenView().setAll(hitParamsdict as [NSObject : AnyObject]!).build() as [NSObject : AnyObject]!)
+        tracker?.send(GAIDictionaryBuilder.createScreenView().setAll(hitParamsdict as [NSObject : AnyObject]!).build() as [NSObject : AnyObject]!)*/
         
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        let urlString = url.absoluteString
+        /*let urlString = url.absoluteString
         let tracker = GAI.sharedInstance().defaultTracker
         let hitParams = GAIDictionaryBuilder()
         hitParams.setCampaignParametersFromUrl(urlString)
@@ -135,10 +157,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ref = FIRDatabase.database().reference()
         ref.child("param").setValue(["paramDict": hitParamsdict])
         ref.child("string").setValue(["url": urlString])
+        ref.child("ref").setValue(["In": "success"])
         
         tracker?.set(kGAIScreenName, value: "Screen Name")
-        tracker?.send(GAIDictionaryBuilder.createScreenView().setAll(hitParamsdict as [NSObject : AnyObject]!).build() as [NSObject : AnyObject]!)
+        tracker?.send(GAIDictionaryBuilder.createScreenView().setAll(hitParamsdict as [NSObject : AnyObject]!).build() as [NSObject : AnyObject]!)*/
         
+        let ur = url.absoluteString
+        let t = GAI.sharedInstance().tracker(withName: "traker", trackingId: "UA-73345306-5")
+        let hit = GAIDictionaryBuilder()
+        hit.setCampaignParametersFromUrl(ur)
+        
+        if !(hit.get(kGAICampaignSource) != nil) && url.host?.characters.count != 0{
+            hit.set("referrer", forKey: kGAICampaignMedium)
+            hit.set(url.host, forKey: kGAICampaignSource)
+        }else{
+            var ref: FIRDatabaseReference!
+            
+            ref = FIRDatabase.database().reference()
+            ref.child("campaignSource").setValue(["paramDict": kGAICampaignSource])
+            ref.child("campaignMedium").setValue(["url": kGAICampaignMedium])
+            ref.child("ref").setValue(["In": "success"])
+        }
+        
+        let hitDict = hit.build()
+        t?.set(kGAIScreenName, value: "prom")
+        t?.send(GAIDictionaryBuilder.createScreenView().setAll(hitDict as [NSObject : AnyObject]!).build() as [NSObject : AnyObject]!)
         
         /*
         NSString *urlString = [url absoluteString];
