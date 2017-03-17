@@ -43,9 +43,7 @@ class WeatherViewController: UIViewController {
                     if let j: Any = json {
                         self.weather = decode(j)
                         let t = self.weather?.list
-                        self.weatherData = Observable.just(t!)//.just(self.weather!)
-                        self.setupCellConfiguration()
-                        self.setupCellTapHandling()
+                        self.filterWeather(list: t!)
                     }
                 }
                 
@@ -56,8 +54,28 @@ class WeatherViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func filterWeather(list : [List]){
+        
+        var t = [List]()
+        for data in list{
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en-GB")
+            formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+            
+            let now = Date()
+            let date = formatter.date(from: data.dt_txt)
+            
+            if now.compare(date!) == .orderedAscending{
+                t.append(data)
+            }
+        }
+        
+        self.weatherData = Observable.just(t)//.just(self.weather!)
+        self.setupCellConfiguration()
+        self.setupCellTapHandling()
+        
+    }
     //MARK: Rx Setup
-    
     private func setupCellConfiguration() {
         
         //Equivalent of cell for row at index path

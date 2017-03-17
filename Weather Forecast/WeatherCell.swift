@@ -25,7 +25,13 @@ class WeatherCell: UITableViewCell {
         formatter.locale = Locale(identifier: "en-GB")
         formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
         
+        let now = Date()
         let date = formatter.date(from: weatherData.dt_txt)
+        
+        switch now.compare(date!) {
+        case .orderedDescending    :   self.isHidden = true
+        default: self.isHidden = false
+        }
         
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
@@ -39,6 +45,7 @@ class WeatherCell: UITableViewCell {
         
         weatherLbl.text = weatherData.weather[0].main
         descriptionLbl.text = weatherData.weather[0].description
+        
         
     }
 }
